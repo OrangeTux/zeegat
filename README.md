@@ -49,7 +49,7 @@ class IntoResponse(Protocol):
 ```
 
 The module `zeegat.services` provide a few classes implementing the `Service`
-interface. The [zeegat/bin/csms.py] uses these services to implement a small
+interface. The [zeegat/bin/csms.py](zeegat/bin/csms.py) uses these services to implement a small
 CSMS.
 
 ### route
@@ -68,9 +68,17 @@ The `timeout()` service prevents other services from blocking for ever.
 
 ## Open points
 
-#. How to inject state into handlers?
-#. How to implement equivalent of `@after()` handler?
+1. How to inject state into handlers?
+2. How to implement equivalent of [`@after()`](https://github.com/mobilityhouse/ocpp/blob/master/ocpp/routing.py#L58-L79) handler?
+
+Assume a charger receives a `TriggerMessage` request to trigger a
+`StatusNotification`. It has to provide a response first, before sending the
+`StatusNotification`. The `ocpp` package provides a `@after()` decorator. `zeegat`
+must provide an API to allow users executing code after a specific request has
+been received.
+
+3. How to provide (indirect) access to the websocket so `Service`s can send requests?
 
 # License
 
-[MIT][LICENSE]
+[MIT](LICENSE)
