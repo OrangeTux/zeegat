@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "zeegat"
+version = "0.1.0"
+description = "Project to explore new routing mechanism for the OCPP package."
+authors = ["Auke Oosterhoff <auke@orangetux.nl>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/OrangeTux/zeegat"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+websockets = "^10.3"
+ocpp = "^0.15.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+ufmt = "^1.3.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
