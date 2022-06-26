@@ -21,6 +21,10 @@ def unpack(msg) -> Call:
 
 
 class Call(messages.Call):
+    @staticmethod
+    def from_frame(frame) -> Call:
+        return frame.as_call()
+
     def into_response(self) -> str:
         return self.to_json()
 

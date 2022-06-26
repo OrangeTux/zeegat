@@ -22,8 +22,12 @@ class Charger(cp):
     async def send_heartbeat(self):
         await self.call(call.HeartbeatPayload())
 
+    async def send_authorize(self):
+        await self.call(call.AuthorizePayload(id_tag="24782"))
+
 
 async def calls(cp):
+    await cp.send_authorize()
     await cp.send_heartbeat()
     await cp.send_boot_notification()
     await cp.send_firmware_status_notification()

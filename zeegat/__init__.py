@@ -1,1 +1,1 @@
-from zeegat.services import handler, log, route, Service, timeout
+from zeegat.services import handler, inject, log, route, Service, timeout
